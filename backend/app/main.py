@@ -1,12 +1,13 @@
-import logging
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
+import logging
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.v1.router import api_v1_router
 from app.core.config import get_settings
+from app.db.session import init_db
 
 settings = get_settings()
 
@@ -20,6 +21,7 @@ logger = logging.getLogger("food_intelligence")
 @asynccontextmanager
 async def lifespan(_app: FastAPI) -> AsyncIterator[None]:
     """Manage startup and shutdown lifecycle hooks cleanly."""
+    init_db()
     logger.info(
         "Starting AI Food Intelligence API | env=%s | provider=%s",
         settings.app_env,

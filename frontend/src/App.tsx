@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Leaf } from "lucide-react";
+import { MealHistoryPanel } from "./components/MealHistoryPanel";
 import { NutritionDashboard } from "./components/NutritionDashboard";
 import { UploadPanel } from "./components/UploadPanel";
 import { VerificationPanel } from "./components/VerificationPanel";
@@ -7,6 +8,9 @@ import {
   analyzeFoodImage,
   calculateMealNutrition,
   checkHealth,
+  createMealLog,
+  deleteMealLog,
+  listMealLogs,
   searchFoods,
 } from "./services/api";
 import type {
@@ -15,6 +19,8 @@ import type {
   FoodPredictionItem,
   HealthResponse,
   MealCalculationResponse,
+  MealHistoryResponse,
+  MealType,
   RecognitionResult,
 } from "./types/api";
 
@@ -86,22 +92,44 @@ export function App() {
   const [calculationError, setCalculationError] = useState<string | null>(null);
   const [calculation, setCalculation] = useState<MealCalculationResponse | null>(null);
 
+  const [mealHistory, setMealHistory] = useState<MealHistoryResponse | null>(null);
+  const [isLoadingHistory, setIsLoadingHistory] = useState(true);
+  const [isSavingMeal, setIsSavingMeal] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const [savedMealId, setSavedMealId] = useState<number | null>(null);
+  const [deletingMealId, setDeletingMealId] = useState<number | null>(null);
+
+  const refreshHistory = async () => {
+    try {
+      const historyData = await listMealLogs(20);
+      setMealHistory(historyData);
+    } catch {
+      // Non-fatal if history endpoint is temporarily unreachable
+    } finally {
+      setIsLoadingHistory(false);
+    }
+  };
+
   useEffect(() => {
     let active = true;
 
     async function bootstrap() {
       try {
-        const [healthData, catalogData] = await Promise.all([
+        const [healthData, catalogData, historyData] = await Promise.all([
           checkHealth(),
           searchFoods("", 100),
+          listMealLogs(20),
         ]);
         if (!active) return;
         setHealth(healthData);
         setCatalog(catalogData.foods);
+        setMealHistory(historyData);
         setBackendOffline(false);
       } catch {
         if (!active) return;
         setBackendOffline(true);
+      } finally {
+        if (active) setIsLoadingHistory(false);
       }
     }
 
@@ -123,6 +151,8 @@ export function App() {
     setPreviewUrl(URL.createObjectURL(file));
     setAnalysisError(null);
     setCalculationError(null);
+    setSaveError(null);
+    setSavedMealId(null);
     setRecognition(null);
     setEditableItems([]);
     setCalculation(null);
@@ -134,6 +164,8 @@ export function App() {
     setPreviewUrl(null);
     setAnalysisError(null);
     setCalculationError(null);
+    setSaveError(null);
+    setSavedMealId(null);
     setRecognition(null);
     setEditableItems([]);
     setCalculation(null);
@@ -144,6 +176,8 @@ export function App() {
     setIsAnalyzing(true);
     setAnalysisError(null);
     setCalculationError(null);
+    setSaveError(null);
+    setSavedMealId(null);
     setCalculation(null);
 
     try {
@@ -164,12 +198,14 @@ export function App() {
   };
 
   const handleUpdateItem = (id: string, patch: Partial<EditableMealItem>) => {
+    setSavedMealId(null);
     setEditableItems((prev) =>
       prev.map((item) => (item.id === id ? { ...item, ...patch } : item)),
     );
   };
 
   const handleSelectCatalogFood = (itemId: string, food: FoodNutritionRecord) => {
+    setSavedMealId(null);
     setEditableItems((prev) =>
       prev.map((item) => {
         if (item.id !== itemId) return item;
@@ -190,10 +226,12 @@ export function App() {
   };
 
   const handleRemoveItem = (id: string) => {
+    setSavedMealId(null);
     setEditableItems((prev) => prev.filter((item) => item.id !== id));
   };
 
   const handleAddManualItem = () => {
+    setSavedMealId(null);
     const newItem: EditableMealItem = {
       id: `manual-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
       foodId: null,
@@ -211,6 +249,7 @@ export function App() {
   };
 
   const handleConfirmAll = () => {
+    setSavedMealId(null);
     setEditableItems((prev) =>
       prev.map((item) => ({ ...item, quantitySource: "user_confirmed" })),
     );
@@ -230,6 +269,8 @@ export function App() {
 
     setIsCalculating(true);
     setCalculationError(null);
+    setSaveError(null);
+    setSavedMealId(null);
 
     try {
       const response = await calculateMealNutrition({
@@ -250,6 +291,51 @@ export function App() {
       );
     } finally {
       setIsCalculating(false);
+    }
+  };
+
+  const handleSaveMeal = async (mealName: string, mealType: MealType) => {
+    const validItems = editableItems.filter(
+      (item) => item.foodName.trim().length > 0 && item.quantity > 0,
+    );
+    if (validItems.length === 0) return;
+
+    setIsSavingMeal(true);
+    setSaveError(null);
+
+    try {
+      const saved = await createMealLog({
+        meal_name: mealName || "Logged Meal",
+        meal_type: mealType,
+        provider_used: recognition?.provider ?? "manual",
+        model_used: recognition?.model_used ?? null,
+        items: validItems.map((item) => ({
+          food_id: item.foodId,
+          food_name: item.foodName.trim(),
+          quantity: item.quantity,
+          unit: item.unit,
+          quantity_source: item.quantitySource,
+        })),
+      });
+      setSavedMealId(saved.id);
+      await refreshHistory();
+    } catch (err) {
+      setSaveError(
+        err instanceof Error ? err.message : "Failed to save meal to history.",
+      );
+    } finally {
+      setIsSavingMeal(false);
+    }
+  };
+
+  const handleDeleteMeal = async (mealId: number) => {
+    setDeletingMealId(mealId);
+    try {
+      await deleteMealLog(mealId);
+      if (savedMealId === mealId) setSavedMealId(null);
+      await refreshHistory();
+    } finally {
+      setDeletingMealId(null);
     }
   };
 
@@ -306,7 +392,6 @@ export function App() {
             </p>
           </div>
 
-          {/* 3-Step Pipeline Indicator */}
           <ol className="flex items-center gap-2 text-xs font-medium">
             {[
               { step: 1, label: "01 Capture" },
@@ -362,9 +447,25 @@ export function App() {
         {/* Full-Width Results Dashboard */}
         {calculation && (
           <div className="mt-8">
-            <NutritionDashboard result={calculation} />
+            <NutritionDashboard
+              result={calculation}
+              isSavingMeal={isSavingMeal}
+              saveError={saveError}
+              savedMealId={savedMealId}
+              onSaveMeal={handleSaveMeal}
+            />
           </div>
         )}
+
+        {/* Persistent SQLite Meal History */}
+        <div className="mt-8">
+          <MealHistoryPanel
+            history={mealHistory}
+            isLoading={isLoadingHistory}
+            deletingId={deletingMealId}
+            onDeleteMeal={handleDeleteMeal}
+          />
+        </div>
       </main>
     </div>
   );

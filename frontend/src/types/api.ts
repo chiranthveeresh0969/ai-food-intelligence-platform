@@ -2,6 +2,8 @@ export type QuantitySource = "visual_estimate" | "user_confirmed";
 
 export type MatchType = "exact_id" | "exact_name" | "alias" | "fuzzy" | "unmatched";
 
+export type MealType = "breakfast" | "lunch" | "dinner" | "snack";
+
 export interface HealthResponse {
   status: string;
   environment: string;
@@ -121,6 +123,63 @@ export interface MealCalculationResponse {
   unmatched_items: string[];
   contains_visual_estimates: boolean;
   disclaimer: string;
+}
+
+export interface MealLogCreateRequest {
+  meal_name: string;
+  meal_type: MealType;
+  provider_used?: string | null;
+  model_used?: string | null;
+  items: NutritionItemInput[];
+}
+
+export interface MealLogItemRead {
+  id: number;
+  food_id: string | null;
+  food_name: string;
+  quantity: number;
+  unit: string;
+  resolved_grams: number;
+  quantity_source: string;
+  calories_kcal: number;
+  protein_g: number;
+  carbs_g: number;
+  fat_g: number;
+  fiber_g: number;
+  data_source: string | null;
+}
+
+export interface MealLogRead {
+  id: number;
+  meal_name: string;
+  meal_type: MealType | string;
+  logged_at: string;
+  total_calories_kcal: number;
+  total_protein_g: number;
+  total_carbs_g: number;
+  total_fat_g: number;
+  total_fiber_g: number;
+  total_grams: number;
+  contains_visual_estimates: boolean;
+  provider_used: string | null;
+  model_used: string | null;
+  items: MealLogItemRead[];
+}
+
+export interface DailyNutritionSummary {
+  date_utc: string;
+  meals_logged_today: number;
+  calories_kcal: number;
+  protein_g: number;
+  carbs_g: number;
+  fat_g: number;
+  fiber_g: number;
+}
+
+export interface MealHistoryResponse {
+  total_meals: number;
+  daily_summary: DailyNutritionSummary;
+  meals: MealLogRead[];
 }
 
 /** Local UI state for an editable meal item during the user verification step. */
