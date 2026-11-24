@@ -32,7 +32,12 @@ class _GeminiFoodItem(BaseModel):
         description="Broad category: Indian, Fruit, International, Snack, Dessert, or Beverage.",
     )
     confidence: float = Field(..., ge=0.0, le=1.0)
-    estimated_grams: float = Field(..., gt=0.0, le=5000.0)
+    estimated_grams: float = Field(
+        ...,
+        ge=1.0,
+        le=5000.0,
+        description="Rough visual starting estimate in grams.",
+    )
     serving_description: str = Field(..., description="Visual serving phrase e.g. '1 medium bowl'.")
     preparation_notes: str = Field(
         ...,
