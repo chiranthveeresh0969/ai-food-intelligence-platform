@@ -1,18 +1,70 @@
-import { AlertTriangle, CheckCircle2, Database, Flame, Scale } from "lucide-react";
+import { useEffect, useState } from "react";
+import {
+  AlertTriangle,
+  BookmarkCheck,
+  BookmarkPlus,
+  CheckCircle2,
+  Database,
+  Flame,
+  Loader2,
+  Scale,
+} from "lucide-react";
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
-import type { MealCalculationResponse } from "../types/api";
+import type { MealCalculationResponse, MealType } from "../types/api";
 
 interface NutritionDashboardProps {
   result: MealCalculationResponse;
+  isSavingMeal: boolean;
+  saveError: string | null;
+  savedMealId: number | null;
+  onSaveMeal: (mealName: string, mealType: MealType) => Promise<void>;
 }
 
 const MACRO_COLORS = {
-  protein: "#fb7185", // radish rose
-  carbs: "#34d399",   // botanical emerald
-  fat: "#fbbf24",     // warm amber
+  protein: "#fb7185",
+  carbs: "#34d399",
+  fat: "#fbbf24",
 };
 
-export function NutritionDashboard({ result }: NutritionDashboardProps) {
+const MEAL_TYPE_OPTIONS: { value: MealType; label: string }[] = [
+  { value: "breakfast", label: "Breakfast" },
+  { value: "lunch", label: "Lunch" },
+  { value: "dinner", label: "Dinner" },
+  { value: "snack", label: "Snack" },
+];
+
+function suggestMealName(result: MealCalculationResponse): string {
+  const matchedNames = result.items
+    .filter((item) => item.matched && item.matched_food_name)
+    .map((item) => item.matched_food_name as string);
+
+  if (matchedNames.length === 0) return "Logged Meal";
+  if (matchedNames.length <= 2) return matchedNames.join(" & ");
+  return `${matchedNames.slice(0, 2).join(", ")} +${matchedNames.length - 2} more`;
+}
+
+function suggestMealTypeByHour(): MealType {
+  const hour = new Date().getHours();
+  if (hour >= 5 && hour < 11) return "breakfast";
+  if (hour >= 11 && hour < 16) return "lunch";
+  if (hour >= 16 && hour < 19) return "snack";
+  return "dinner";
+}
+
+export function NutritionDashboard({
+  result,
+  isSavingMeal,
+  saveError,
+  savedMealId,
+  onSaveMeal,
+}: NutritionDashboardProps) {
+  const [mealName, setMealName] = useState(() => suggestMealName(result));
+  const [mealType, setMealType] = useState<MealType>(() => suggestMealTypeByHour());
+
+  useEffect(() => {
+    setMealName(suggestMealName(result));
+  }, [result]);
+
   const { totals, macro_calorie_split: split } = result;
 
   const chartData = [
@@ -20,6 +72,8 @@ export function NutritionDashboard({ result }: NutritionDashboardProps) {
     { name: "Carbohydrates", value: split.carbs_pct, grams: totals.carbs_g, color: MACRO_COLORS.carbs },
     { name: "Fat", value: split.fat_pct, grams: totals.fat_g, color: MACRO_COLORS.fat },
   ].filter((entry) => entry.value > 0);
+
+  const canSave = result.matched_count > 0 && mealName.trim().length > 0 && !isSavingMeal;
 
   return (
     <section className="rounded-3xl border border-zinc-800/90 bg-zinc-950/85 p-6 backdrop-blur-sm md:p-8">
@@ -67,6 +121,78 @@ export function NutritionDashboard({ result }: NutritionDashboardProps) {
             </span>
           </p>
         </div>
+      </div>
+
+      {/* Save to Persistent Meal History Bar */}
+      <div className="mt-6 rounded-2xl border border-zinc-800 bg-zinc-900/50 p-4">
+        <div className="grid grid-cols-1 items-end gap-3 md:grid-cols-12">
+          <div className="md:col-span-6">
+            <label className="mb-1 block text-[11px] font-medium tracking-wider text-zinc-400 uppercase">
+              Meal Label
+            </label>
+            <input
+              type="text"
+              value={mealName}
+              onChange={(e) => setMealName(e.target.value)}
+              maxLength={120}
+              placeholder="e.g. Post-Workout Lunch"
+              className="w-full rounded-xl border border-zinc-700/80 bg-zinc-950 px-3.5 py-2 text-sm text-zinc-100 placeholder:text-zinc-500 focus:border-emerald-500 focus:outline-none"
+            />
+          </div>
+
+          <div className="md:col-span-3">
+            <label className="mb-1 block text-[11px] font-medium tracking-wider text-zinc-400 uppercase">
+              Meal Type
+            </label>
+            <select
+              value={mealType}
+              onChange={(e) => setMealType(e.target.value as MealType)}
+              className="w-full rounded-xl border border-zinc-700/80 bg-zinc-950 px-3 py-2 text-sm text-zinc-100 focus:border-emerald-500 focus:outline-none"
+            >
+              {MEAL_TYPE_OPTIONS.map((opt) => (
+                <option key={opt.value} value={opt.value}>
+                  {opt.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="md:col-span-3">
+            <button
+              type="button"
+              onClick={() => onSaveMeal(mealName.trim(), mealType)}
+              disabled={!canSave || savedMealId !== null}
+              className={`flex w-full items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition ${
+                savedMealId !== null
+                  ? "border border-emerald-500/40 bg-emerald-500/15 text-emerald-300"
+                  : "bg-white text-zinc-950 hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-50"
+              }`}
+            >
+              {isSavingMeal ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  Saving...
+                </>
+              ) : savedMealId !== null ? (
+                <>
+                  <BookmarkCheck className="h-4 w-4" />
+                  Saved to Log
+                </>
+              ) : (
+                <>
+                  <BookmarkPlus className="h-4 w-4" />
+                  Save to Meal Log
+                </>
+              )}
+            </button>
+          </div>
+        </div>
+
+        {saveError && (
+          <p role="alert" className="mt-2.5 text-xs text-rose-300">
+            {saveError}
+          </p>
+        )}
       </div>
 
       {/* Unmatched Warning Banner */}
@@ -145,7 +271,6 @@ export function NutritionDashboard({ result }: NutritionDashboardProps) {
 
       {/* Chart + Itemized Breakdown */}
       <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-12">
-        {/* Macro Calorie Split Donut Chart */}
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 lg:col-span-5">
           <h3 className="text-sm font-semibold text-zinc-100">
             Calorie Distribution by Macro
@@ -215,7 +340,6 @@ export function NutritionDashboard({ result }: NutritionDashboardProps) {
           )}
         </div>
 
-        {/* Itemized Table */}
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 lg:col-span-7">
           <h3 className="text-sm font-semibold text-zinc-100">
             Item-by-Item Breakdown
@@ -252,7 +376,8 @@ export function NutritionDashboard({ result }: NutritionDashboardProps) {
                   </div>
 
                   <p className="text-base font-semibold text-white tabular-nums">
-                    {item.calories_kcal} <span className="text-xs font-normal text-zinc-400">kcal</span>
+                    {item.calories_kcal}{" "}
+                    <span className="text-xs font-normal text-zinc-400">kcal</span>
                   </p>
                 </div>
 
