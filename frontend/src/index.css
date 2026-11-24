@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Instrument Serif", Georgia, Cambria, serif;
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@layer base {
+  html,
+  body {
+    font-family: var(--font-sans);
+    background-color: #09090b;
+    color: #f4f4f5;
+    min-height: 100%;
+  }
+}
+
+.bg-editorial-glow {
+  background-image:
+    radial-gradient(ellipse 65% 40% at 15% 0%, rgba(16, 185, 129, 0.12), transparent 65%),
+    radial-gradient(ellipse 50% 35% at 88% 8%, rgba(244, 63, 94, 0.1), transparent 60%);
+}
