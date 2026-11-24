@@ -1,0 +1,824 @@
+[
+  {
+    "id": "steamed_white_rice",
+    "name": "Steamed White Rice",
+    "aliases": ["white rice", "plain rice", "boiled rice", "cooked rice", "basmati rice", "rice"],
+    "cuisine_category": "Indian",
+    "source": "USDA FoodData Central",
+    "calories_per_100g": 130.0,
+    "protein_g_per_100g": 2.7,
+    "carbs_g_per_100g": 28.2,
+    "fat_g_per_100g": 0.3,
+    "fiber_g_per_100g": 0.4,
+    "default_unit": "bowl",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "katori", "label": "1 katori (150g)", "grams": 150.0},
+      {"unit": "bowl", "label": "1 medium bowl (200g)", "grams": 200.0},
+      {"unit": "cup", "label": "1 cup cooked (160g)", "grams": 160.0},
+      {"unit": "serving", "label": "1 serving (150g)", "grams": 150.0}
+    ]
+  },
+  {
+    "id": "brown_rice",
+    "name": "Brown Rice (Cooked)",
+    "aliases": ["brown rice", "boiled brown rice"],
+    "cuisine_category": "International",
+    "source": "USDA FoodData Central",
+    "calories_per_100g": 123.0,
+    "protein_g_per_100g": 2.7,
+    "carbs_g_per_100g": 25.6,
+    "fat_g_per_100g": 1.0,
+    "fiber_g_per_100g": 1.6,
+    "default_unit": "bowl",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "bowl", "label": "1 medium bowl (195g)", "grams": 195.0},
+      {"unit": "cup", "label": "1 cup cooked (195g)", "grams": 195.0},
+      {"unit": "serving", "label": "1 serving (150g)", "grams": 150.0}
+    ]
+  },
+  {
+    "id": "chapati",
+    "name": "Chapati",
+    "aliases": ["roti", "phulka", "whole wheat roti", "wheat chapati", "tawa roti"],
+    "cuisine_category": "Indian",
+    "source": "ICMR-NIN IFCT 2017",
+    "calories_per_100g": 297.0,
+    "protein_g_per_100g": 9.6,
+    "carbs_g_per_100g": 55.8,
+    "fat_g_per_100g": 3.7,
+    "fiber_g_per_100g": 7.0,
+    "default_unit": "piece",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "piece", "label": "1 medium chapati (35g)", "grams": 35.0},
+      {"unit": "serving", "label": "2 chapatis (70g)", "grams": 70.0}
+    ]
+  },
+  {
+    "id": "plain_paratha",
+    "name": "Plain Paratha",
+    "aliases": ["paratha", "tawa paratha", "wheat paratha"],
+    "cuisine_category": "Indian",
+    "source": "ICMR-NIN IFCT 2017 (Cooked Reference)",
+    "calories_per_100g": 326.0,
+    "protein_g_per_100g": 7.8,
+    "carbs_g_per_100g": 45.2,
+    "fat_g_per_100g": 12.6,
+    "fiber_g_per_100g": 5.0,
+    "default_unit": "piece",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "piece", "label": "1 paratha (60g)", "grams": 60.0},
+      {"unit": "serving", "label": "1 serving (60g)", "grams": 60.0}
+    ]
+  },
+  {
+    "id": "aloo_paratha",
+    "name": "Aloo Paratha",
+    "aliases": ["potato paratha", "stuffed aloo paratha"],
+    "cuisine_category": "Indian",
+    "source": "ICMR-NIN IFCT 2017 (Cooked Reference)",
+    "calories_per_100g": 260.0,
+    "protein_g_per_100g": 6.2,
+    "carbs_g_per_100g": 38.5,
+    "fat_g_per_100g": 9.1,
+    "fiber_g_per_100g": 4.2,
+    "default_unit": "piece",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "piece", "label": "1 medium aloo paratha (110g)", "grams": 110.0},
+      {"unit": "serving", "label": "1 serving (110g)", "grams": 110.0}
+    ]
+  },
+  {
+    "id": "naan",
+    "name": "Naan",
+    "aliases": ["butter naan", "garlic naan", "tandoori naan", "plain naan"],
+    "cuisine_category": "Indian",
+    "source": "USDA FoodData Central",
+    "calories_per_100g": 291.0,
+    "protein_g_per_100g": 9.1,
+    "carbs_g_per_100g": 50.4,
+    "fat_g_per_100g": 5.7,
+    "fiber_g_per_100g": 2.2,
+    "default_unit": "piece",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "piece", "label": "1 naan (90g)", "grams": 90.0},
+      {"unit": "serving", "label": "1 serving (90g)", "grams": 90.0}
+    ]
+  },
+  {
+    "id": "idli",
+    "name": "Idli",
+    "aliases": ["steamed idli", "rice idli", "rava idli", "idlis"],
+    "cuisine_category": "Indian",
+    "source": "ICMR-NIN IFCT 2017 (Cooked Reference)",
+    "calories_per_100g": 146.0,
+    "protein_g_per_100g": 4.7,
+    "carbs_g_per_100g": 30.2,
+    "fat_g_per_100g": 0.5,
+    "fiber_g_per_100g": 1.2,
+    "default_unit": "piece",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "piece", "label": "1 medium idli (40g)", "grams": 40.0},
+      {"unit": "serving", "label": "3 idlis (120g)", "grams": 120.0}
+    ]
+  },
+  {
+    "id": "plain_dosa",
+    "name": "Plain Dosa",
+    "aliases": ["dosa", "sada dosa", "crispy dosa", "roast dosa"],
+    "cuisine_category": "Indian",
+    "source": "ICMR-NIN IFCT 2017 (Cooked Reference)",
+    "calories_per_100g": 185.0,
+    "protein_g_per_100g": 4.5,
+    "carbs_g_per_100g": 30.8,
+    "fat_g_per_100g": 4.9,
+    "fiber_g_per_100g": 1.4,
+    "default_unit": "piece",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "piece", "label": "1 plain dosa (90g)", "grams": 90.0},
+      {"unit": "serving", "label": "1 serving (90g)", "grams": 90.0}
+    ]
+  },
+  {
+    "id": "masala_dosa",
+    "name": "Masala Dosa",
+    "aliases": ["mysore masala dosa", "butter masala dosa", "potato masala dosa"],
+    "cuisine_category": "Indian",
+    "source": "ICMR-NIN IFCT 2017 (Cooked Reference)",
+    "calories_per_100g": 195.0,
+    "protein_g_per_100g": 4.3,
+    "carbs_g_per_100g": 29.5,
+    "fat_g_per_100g": 6.8,
+    "fiber_g_per_100g": 2.5,
+    "default_unit": "piece",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "piece", "label": "1 masala dosa (180g)", "grams": 180.0},
+      {"unit": "serving", "label": "1 serving (180g)", "grams": 180.0}
+    ]
+  },
+  {
+    "id": "medu_vada",
+    "name": "Medu Vada",
+    "aliases": ["vada", "uddina vada", "urad dal vada"],
+    "cuisine_category": "Indian",
+    "source": "ICMR-NIN IFCT 2017 (Cooked Reference)",
+    "calories_per_100g": 282.0,
+    "protein_g_per_100g": 8.4,
+    "carbs_g_per_100g": 32.0,
+    "fat_g_per_100g": 13.5,
+    "fiber_g_per_100g": 3.5,
+    "default_unit": "piece",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "piece", "label": "1 medu vada (55g)", "grams": 55.0},
+      {"unit": "serving", "label": "2 vadas (110g)", "grams": 110.0}
+    ]
+  },
+  {
+    "id": "poha",
+    "name": "Poha",
+    "aliases": ["kanda poha", "flattened rice", "avalakki"],
+    "cuisine_category": "Indian",
+    "source": "ICMR-NIN IFCT 2017 (Cooked Reference)",
+    "calories_per_100g": 158.0,
+    "protein_g_per_100g": 3.4,
+    "carbs_g_per_100g": 27.0,
+    "fat_g_per_100g": 4.2,
+    "fiber_g_per_100g": 2.1,
+    "default_unit": "bowl",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "bowl", "label": "1 medium bowl (160g)", "grams": 160.0},
+      {"unit": "serving", "label": "1 plate (160g)", "grams": 160.0}
+    ]
+  },
+  {
+    "id": "upma",
+    "name": "Upma",
+    "aliases": ["rava upma", "sooji upma", "uppittu", "khara bath"],
+    "cuisine_category": "Indian",
+    "source": "ICMR-NIN IFCT 2017 (Cooked Reference)",
+    "calories_per_100g": 152.0,
+    "protein_g_per_100g": 4.1,
+    "carbs_g_per_100g": 23.5,
+    "fat_g_per_100g": 4.6,
+    "fiber_g_per_100g": 2.0,
+    "default_unit": "bowl",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "bowl", "label": "1 medium bowl (170g)", "grams": 170.0},
+      {"unit": "serving", "label": "1 serving (170g)", "grams": 170.0}
+    ]
+  },
+  {
+    "id": "dal_tadka",
+    "name": "Dal Tadka",
+    "aliases": ["dal", "yellow dal", "dal fry", "toor dal", "lentil curry", "arhar dal", "moong dal"],
+    "cuisine_category": "Indian",
+    "source": "ICMR-NIN IFCT 2017 (Cooked Reference)",
+    "calories_per_100g": 118.0,
+    "protein_g_per_100g": 6.8,
+    "carbs_g_per_100g": 14.5,
+    "fat_g_per_100g": 3.6,
+    "fiber_g_per_100g": 4.2,
+    "default_unit": "katori",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "katori", "label": "1 katori (150g)", "grams": 150.0},
+      {"unit": "bowl", "label": "1 bowl (200g)", "grams": 200.0},
+      {"unit": "serving", "label": "1 serving (150g)", "grams": 150.0}
+    ]
+  },
+  {
+    "id": "sambar",
+    "name": "Sambar",
+    "aliases": ["sambhar", "vegetable sambar", "south indian sambar"],
+    "cuisine_category": "Indian",
+    "source": "ICMR-NIN IFCT 2017 (Cooked Reference)",
+    "calories_per_100g": 65.0,
+    "protein_g_per_100g": 3.2,
+    "carbs_g_per_100g": 9.5,
+    "fat_g_per_100g": 1.6,
+    "fiber_g_per_100g": 2.4,
+    "default_unit": "katori",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "katori", "label": "1 katori (150g)", "grams": 150.0},
+      {"unit": "bowl", "label": "1 bowl (200g)", "grams": 200.0},
+      {"unit": "serving", "label": "1 serving (150g)", "grams": 150.0}
+    ]
+  },
+  {
+    "id": "coconut_chutney",
+    "name": "Coconut Chutney",
+    "aliases": ["chutney", "white chutney", "nariyal chutney"],
+    "cuisine_category": "Indian",
+    "source": "ICMR-NIN IFCT 2017 (Cooked Reference)",
+    "calories_per_100g": 185.0,
+    "protein_g_per_100g": 3.4,
+    "carbs_g_per_100g": 9.8,
+    "fat_g_per_100g": 14.8,
+    "fiber_g_per_100g": 4.1,
+    "default_unit": "tbsp",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "tbsp", "label": "1 tbsp (15g)", "grams": 15.0},
+      {"unit": "serving", "label": "1 small cup (45g)", "grams": 45.0}
+    ]
+  },
+  {
+    "id": "rajma_masala",
+    "name": "Rajma Masala",
+    "aliases": ["rajma", "kidney bean curry", "rajma curry"],
+    "cuisine_category": "Indian",
+    "source": "ICMR-NIN IFCT 2017 (Cooked Reference)",
+    "calories_per_100g": 124.0,
+    "protein_g_per_100g": 6.5,
+    "carbs_g_per_100g": 17.8,
+    "fat_g_per_100g": 3.0,
+    "fiber_g_per_100g": 5.5,
+    "default_unit": "katori",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "katori", "label": "1 katori (150g)", "grams": 150.0},
+      {"unit": "bowl", "label": "1 bowl (200g)", "grams": 200.0},
+      {"unit": "serving", "label": "1 serving (150g)", "grams": 150.0}
+    ]
+  },
+  {
+    "id": "chole_masala",
+    "name": "Chole Masala",
+    "aliases": ["chole", "chana masala", "chickpea curry", "punjabi chole"],
+    "cuisine_category": "Indian",
+    "source": "ICMR-NIN IFCT 2017 (Cooked Reference)",
+    "calories_per_100g": 148.0,
+    "protein_g_per_100g": 6.9,
+    "carbs_g_per_100g": 19.6,
+    "fat_g_per_100g": 4.7,
+    "fiber_g_per_100g": 5.2,
+    "default_unit": "katori",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "katori", "label": "1 katori (150g)", "grams": 150.0},
+      {"unit": "bowl", "label": "1 bowl (200g)", "grams": 200.0},
+      {"unit": "serving", "label": "1 serving (150g)", "grams": 150.0}
+    ]
+  },
+  {
+    "id": "paneer_butter_masala",
+    "name": "Paneer Butter Masala",
+    "aliases": ["paneer makhani", "shahi paneer", "kadai paneer", "paneer curry", "paneer tikka masala"],
+    "cuisine_category": "Indian",
+    "source": "ICMR-NIN IFCT 2017 (Cooked Reference)",
+    "calories_per_100g": 212.0,
+    "protein_g_per_100g": 8.5,
+    "carbs_g_per_100g": 8.4,
+    "fat_g_per_100g": 16.0,
+    "fiber_g_per_100g": 1.6,
+    "default_unit": "katori",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "katori", "label": "1 katori (150g)", "grams": 150.0},
+      {"unit": "bowl", "label": "1 bowl (200g)", "grams": 200.0},
+      {"unit": "serving", "label": "1 serving (150g)", "grams": 150.0}
+    ]
+  },
+  {
+    "id": "palak_paneer",
+    "name": "Palak Paneer",
+    "aliases": ["spinach paneer", "saag paneer"],
+    "cuisine_category": "Indian",
+    "source": "ICMR-NIN IFCT 2017 (Cooked Reference)",
+    "calories_per_100g": 165.0,
+    "protein_g_per_100g": 8.2,
+    "carbs_g_per_100g": 6.4,
+    "fat_g_per_100g": 11.8,
+    "fiber_g_per_100g": 2.4,
+    "default_unit": "katori",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "katori", "label": "1 katori (150g)", "grams": 150.0},
+      {"unit": "bowl", "label": "1 bowl (200g)", "grams": 200.0},
+      {"unit": "serving", "label": "1 serving (150g)", "grams": 150.0}
+    ]
+  },
+  {
+    "id": "butter_chicken",
+    "name": "Butter Chicken",
+    "aliases": ["murgh makhani", "chicken tikka masala", "chicken curry"],
+    "cuisine_category": "Indian",
+    "source": "USDA FoodData Central / Reference",
+    "calories_per_100g": 182.0,
+    "protein_g_per_100g": 13.8,
+    "carbs_g_per_100g": 6.2,
+    "fat_g_per_100g": 11.4,
+    "fiber_g_per_100g": 1.1,
+    "default_unit": "katori",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "katori", "label": "1 katori (150g)", "grams": 150.0},
+      {"unit": "bowl", "label": "1 bowl (200g)", "grams": 200.0},
+      {"unit": "serving", "label": "1 serving (180g)", "grams": 180.0}
+    ]
+  },
+  {
+    "id": "chicken_biryani",
+    "name": "Chicken Biryani",
+    "aliases": ["hyderabadi biryani", "dum biryani", "biryani"],
+    "cuisine_category": "Indian",
+    "source": "ICMR-NIN IFCT 2017 (Cooked Reference)",
+    "calories_per_100g": 168.0,
+    "protein_g_per_100g": 9.4,
+    "carbs_g_per_100g": 21.0,
+    "fat_g_per_100g": 5.2,
+    "fiber_g_per_100g": 1.2,
+    "default_unit": "bowl",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "bowl", "label": "1 medium bowl (250g)", "grams": 250.0},
+      {"unit": "serving", "label": "1 full plate (350g)", "grams": 350.0}
+    ]
+  },
+  {
+    "id": "veg_biryani",
+    "name": "Vegetable Biryani",
+    "aliases": ["veg biryani", "vegetable pulao", "veg pulao", "pulao"],
+    "cuisine_category": "Indian",
+    "source": "ICMR-NIN IFCT 2017 (Cooked Reference)",
+    "calories_per_100g": 145.0,
+    "protein_g_per_100g": 3.8,
+    "carbs_g_per_100g": 24.0,
+    "fat_g_per_100g": 3.8,
+    "fiber_g_per_100g": 2.4,
+    "default_unit": "bowl",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "bowl", "label": "1 medium bowl (250g)", "grams": 250.0},
+      {"unit": "serving", "label": "1 plate (300g)", "grams": 300.0}
+    ]
+  },
+  {
+    "id": "plain_curd",
+    "name": "Plain Curd (Yogurt)",
+    "aliases": ["curd", "dahi", "plain yogurt", "yogurt", "raita"],
+    "cuisine_category": "Indian",
+    "source": "ICMR-NIN IFCT 2017",
+    "calories_per_100g": 61.0,
+    "protein_g_per_100g": 3.5,
+    "carbs_g_per_100g": 4.7,
+    "fat_g_per_100g": 3.2,
+    "fiber_g_per_100g": 0.0,
+    "default_unit": "katori",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "katori", "label": "1 katori (100g)", "grams": 100.0},
+      {"unit": "cup", "label": "1 cup (240g)", "grams": 240.0},
+      {"unit": "serving", "label": "1 serving (100g)", "grams": 100.0}
+    ]
+  },
+  {
+    "id": "samosa",
+    "name": "Samosa",
+    "aliases": ["punjabi samosa", "aloo samosa", "vegetable samosa"],
+    "cuisine_category": "Snack",
+    "source": "ICMR-NIN IFCT 2017 (Cooked Reference)",
+    "calories_per_100g": 308.0,
+    "protein_g_per_100g": 5.4,
+    "carbs_g_per_100g": 33.5,
+    "fat_g_per_100g": 17.0,
+    "fiber_g_per_100g": 3.1,
+    "default_unit": "piece",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "piece", "label": "1 samosa (80g)", "grams": 80.0},
+      {"unit": "serving", "label": "2 samosas (160g)", "grams": 160.0}
+    ]
+  },
+  {
+    "id": "pav_bhaji",
+    "name": "Pav Bhaji",
+    "aliases": ["bhaji pav", "butter pav bhaji"],
+    "cuisine_category": "Indian",
+    "source": "ICMR-NIN IFCT 2017 (Cooked Reference)",
+    "calories_per_100g": 185.0,
+    "protein_g_per_100g": 4.6,
+    "carbs_g_per_100g": 25.0,
+    "fat_g_per_100g": 7.4,
+    "fiber_g_per_100g": 3.2,
+    "default_unit": "serving",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "serving", "label": "1 plate (280g)", "grams": 280.0}
+    ]
+  },
+  {
+    "id": "masala_chai",
+    "name": "Masala Chai (Milk Tea)",
+    "aliases": ["chai", "indian tea", "milk tea", "tea"],
+    "cuisine_category": "Beverage",
+    "source": "ICMR-NIN IFCT 2017 (Reference)",
+    "calories_per_100g": 55.0,
+    "protein_g_per_100g": 1.8,
+    "carbs_g_per_100g": 7.5,
+    "fat_g_per_100g": 2.0,
+    "fiber_g_per_100g": 0.0,
+    "default_unit": "cup",
+    "serving_units": [
+      {"unit": "g", "label": "Grams / ml", "grams": 1.0},
+      {"unit": "cup", "label": "1 cup (150ml)", "grams": 150.0},
+      {"unit": "serving", "label": "1 cup (150ml)", "grams": 150.0}
+    ]
+  },
+  {
+    "id": "boiled_egg",
+    "name": "Boiled Egg",
+    "aliases": ["hard boiled egg", "egg", "boiled eggs", "eggs"],
+    "cuisine_category": "International",
+    "source": "USDA FoodData Central",
+    "calories_per_100g": 155.0,
+    "protein_g_per_100g": 12.6,
+    "carbs_g_per_100g": 1.1,
+    "fat_g_per_100g": 10.6,
+    "fiber_g_per_100g": 0.0,
+    "default_unit": "piece",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "piece", "label": "1 large egg (50g)", "grams": 50.0},
+      {"unit": "serving", "label": "2 eggs (100g)", "grams": 100.0}
+    ]
+  },
+  {
+    "id": "omelette",
+    "name": "Egg Omelette",
+    "aliases": ["omelette", "omelet", "masala omelette", "egg bhurji", "scrambled eggs"],
+    "cuisine_category": "International",
+    "source": "USDA FoodData Central",
+    "calories_per_100g": 174.0,
+    "protein_g_per_100g": 11.4,
+    "carbs_g_per_100g": 1.6,
+    "fat_g_per_100g": 13.4,
+    "fiber_g_per_100g": 0.2,
+    "default_unit": "serving",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "serving", "label": "2-egg omelette (120g)", "grams": 120.0},
+      {"unit": "piece", "label": "1 omelette (120g)", "grams": 120.0}
+    ]
+  },
+  {
+    "id": "grilled_chicken_breast",
+    "name": "Grilled Chicken Breast",
+    "aliases": ["grilled chicken", "chicken breast", "roasted chicken", "tandoori chicken", "boiled chicken"],
+    "cuisine_category": "International",
+    "source": "USDA FoodData Central",
+    "calories_per_100g": 165.0,
+    "protein_g_per_100g": 31.0,
+    "carbs_g_per_100g": 0.0,
+    "fat_g_per_100g": 3.6,
+    "fiber_g_per_100g": 0.0,
+    "default_unit": "serving",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "piece", "label": "1 fillet (120g)", "grams": 120.0},
+      {"unit": "serving", "label": "1 serving (150g)", "grams": 150.0}
+    ]
+  },
+  {
+    "id": "paneer_raw",
+    "name": "Paneer (Cottage Cheese)",
+    "aliases": ["paneer", "cottage cheese", "grilled paneer", "paneer tikka"],
+    "cuisine_category": "Indian",
+    "source": "ICMR-NIN IFCT 2017",
+    "calories_per_100g": 265.0,
+    "protein_g_per_100g": 18.3,
+    "carbs_g_per_100g": 3.4,
+    "fat_g_per_100g": 20.8,
+    "fiber_g_per_100g": 0.0,
+    "default_unit": "serving",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "piece", "label": "1 cube (20g)", "grams": 20.0},
+      {"unit": "serving", "label": "1 serving (100g)", "grams": 100.0}
+    ]
+  },
+  {
+    "id": "cooked_oats",
+    "name": "Oatmeal (Cooked Oats)",
+    "aliases": ["oats", "oatmeal", "porridge", "masala oats"],
+    "cuisine_category": "International",
+    "source": "USDA FoodData Central",
+    "calories_per_100g": 71.0,
+    "protein_g_per_100g": 2.5,
+    "carbs_g_per_100g": 12.0,
+    "fat_g_per_100g": 1.5,
+    "fiber_g_per_100g": 1.7,
+    "default_unit": "bowl",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "bowl", "label": "1 bowl (235g)", "grams": 235.0},
+      {"unit": "cup", "label": "1 cup cooked (235g)", "grams": 235.0},
+      {"unit": "serving", "label": "1 serving (235g)", "grams": 235.0}
+    ]
+  },
+  {
+    "id": "whole_wheat_bread",
+    "name": "Whole Wheat Bread",
+    "aliases": ["brown bread", "bread", "toast", "wheat bread", "bread slice"],
+    "cuisine_category": "International",
+    "source": "USDA FoodData Central",
+    "calories_per_100g": 247.0,
+    "protein_g_per_100g": 12.5,
+    "carbs_g_per_100g": 41.3,
+    "fat_g_per_100g": 3.4,
+    "fiber_g_per_100g": 6.8,
+    "default_unit": "slice",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "slice", "label": "1 slice (30g)", "grams": 30.0},
+      {"unit": "serving", "label": "2 slices (60g)", "grams": 60.0}
+    ]
+  },
+  {
+    "id": "peanut_butter",
+    "name": "Peanut Butter",
+    "aliases": ["smooth peanut butter", "crunchy peanut butter"],
+    "cuisine_category": "International",
+    "source": "USDA FoodData Central",
+    "calories_per_100g": 588.0,
+    "protein_g_per_100g": 25.1,
+    "carbs_g_per_100g": 20.0,
+    "fat_g_per_100g": 50.4,
+    "fiber_g_per_100g": 6.0,
+    "default_unit": "tbsp",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "tbsp", "label": "1 tbsp (16g)", "grams": 16.0},
+      {"unit": "serving", "label": "2 tbsp (32g)", "grams": 32.0}
+    ]
+  },
+  {
+    "id": "mango",
+    "name": "Mango",
+    "aliases": ["alphonso mango", "ripe mango", "fresh mango", "sliced mango", "mangoes"],
+    "cuisine_category": "Fruit",
+    "source": "USDA FoodData Central",
+    "calories_per_100g": 60.0,
+    "protein_g_per_100g": 0.8,
+    "carbs_g_per_100g": 15.0,
+    "fat_g_per_100g": 0.4,
+    "fiber_g_per_100g": 1.6,
+    "default_unit": "piece",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "piece", "label": "1 medium mango edible flesh (200g)", "grams": 200.0},
+      {"unit": "cup", "label": "1 cup sliced (165g)", "grams": 165.0},
+      {"unit": "serving", "label": "1 serving (165g)", "grams": 165.0}
+    ]
+  },
+  {
+    "id": "banana",
+    "name": "Banana",
+    "aliases": ["ripe banana", "yelakki banana", "robusta banana", "bananas"],
+    "cuisine_category": "Fruit",
+    "source": "USDA FoodData Central",
+    "calories_per_100g": 89.0,
+    "protein_g_per_100g": 1.1,
+    "carbs_g_per_100g": 22.8,
+    "fat_g_per_100g": 0.3,
+    "fiber_g_per_100g": 2.6,
+    "default_unit": "piece",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "piece", "label": "1 medium banana (118g)", "grams": 118.0},
+      {"unit": "serving", "label": "1 serving (118g)", "grams": 118.0}
+    ]
+  },
+  {
+    "id": "apple",
+    "name": "Apple",
+    "aliases": ["red apple", "green apple", "sliced apple", "apples"],
+    "cuisine_category": "Fruit",
+    "source": "USDA FoodData Central",
+    "calories_per_100g": 52.0,
+    "protein_g_per_100g": 0.3,
+    "carbs_g_per_100g": 13.8,
+    "fat_g_per_100g": 0.2,
+    "fiber_g_per_100g": 2.4,
+    "default_unit": "piece",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "piece", "label": "1 medium apple (182g)", "grams": 182.0},
+      {"unit": "serving", "label": "1 serving (182g)", "grams": 182.0}
+    ]
+  },
+  {
+    "id": "orange",
+    "name": "Orange",
+    "aliases": ["fresh orange", "sweet orange", "mandarin", "oranges"],
+    "cuisine_category": "Fruit",
+    "source": "USDA FoodData Central",
+    "calories_per_100g": 47.0,
+    "protein_g_per_100g": 0.9,
+    "carbs_g_per_100g": 11.8,
+    "fat_g_per_100g": 0.1,
+    "fiber_g_per_100g": 2.4,
+    "default_unit": "piece",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "piece", "label": "1 medium orange (131g)", "grams": 131.0},
+      {"unit": "serving", "label": "1 serving (131g)", "grams": 131.0}
+    ]
+  },
+  {
+    "id": "watermelon",
+    "name": "Watermelon",
+    "aliases": ["fresh watermelon", "watermelon slices"],
+    "cuisine_category": "Fruit",
+    "source": "USDA FoodData Central",
+    "calories_per_100g": 30.0,
+    "protein_g_per_100g": 0.6,
+    "carbs_g_per_100g": 7.6,
+    "fat_g_per_100g": 0.2,
+    "fiber_g_per_100g": 0.4,
+    "default_unit": "cup",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "cup", "label": "1 cup diced (152g)", "grams": 152.0},
+      {"unit": "slice", "label": "1 wedge (280g)", "grams": 280.0},
+      {"unit": "serving", "label": "1 serving (152g)", "grams": 152.0}
+    ]
+  },
+  {
+    "id": "mixed_green_salad",
+    "name": "Mixed Green Salad",
+    "aliases": ["salad", "green salad", "vegetable salad", "cucumber salad", "kachumber"],
+    "cuisine_category": "International",
+    "source": "USDA FoodData Central",
+    "calories_per_100g": 25.0,
+    "protein_g_per_100g": 1.5,
+    "carbs_g_per_100g": 4.6,
+    "fat_g_per_100g": 0.3,
+    "fiber_g_per_100g": 2.0,
+    "default_unit": "bowl",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "bowl", "label": "1 bowl (120g)", "grams": 120.0},
+      {"unit": "serving", "label": "1 side serving (100g)", "grams": 100.0}
+    ]
+  },
+  {
+    "id": "almonds",
+    "name": "Almonds",
+    "aliases": ["roasted almonds", "raw almonds", "soaked almonds", "badam"],
+    "cuisine_category": "Snack",
+    "source": "USDA FoodData Central",
+    "calories_per_100g": 579.0,
+    "protein_g_per_100g": 21.2,
+    "carbs_g_per_100g": 21.6,
+    "fat_g_per_100g": 49.9,
+    "fiber_g_per_100g": 12.5,
+    "default_unit": "serving",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "piece", "label": "1 almond (1.2g)", "grams": 1.2},
+      {"unit": "serving", "label": "1 handful / 23 almonds (28g)", "grams": 28.0}
+    ]
+  },
+  {
+    "id": "cheese_pizza",
+    "name": "Cheese Pizza",
+    "aliases": ["pizza", "margherita pizza", "veg pizza", "pepperoni pizza", "pizza slice"],
+    "cuisine_category": "International",
+    "source": "USDA FoodData Central",
+    "calories_per_100g": 266.0,
+    "protein_g_per_100g": 11.4,
+    "carbs_g_per_100g": 33.3,
+    "fat_g_per_100g": 9.7,
+    "fiber_g_per_100g": 2.3,
+    "default_unit": "slice",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "slice", "label": "1 regular slice (107g)", "grams": 107.0},
+      {"unit": "serving", "label": "2 slices (214g)", "grams": 214.0}
+    ]
+  },
+  {
+    "id": "burger",
+    "name": "Burger",
+    "aliases": ["chicken burger", "veg burger", "cheeseburger", "hamburger"],
+    "cuisine_category": "International",
+    "source": "USDA FoodData Central",
+    "calories_per_100g": 254.0,
+    "protein_g_per_100g": 13.0,
+    "carbs_g_per_100g": 24.0,
+    "fat_g_per_100g": 11.8,
+    "fiber_g_per_100g": 1.4,
+    "default_unit": "piece",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "piece", "label": "1 burger (180g)", "grams": 180.0},
+      {"unit": "serving", "label": "1 burger (180g)", "grams": 180.0}
+    ]
+  },
+  {
+    "id": "french_fries",
+    "name": "French Fries",
+    "aliases": ["fries", "potato fries", "finger chips"],
+    "cuisine_category": "Snack",
+    "source": "USDA FoodData Central",
+    "calories_per_100g": 312.0,
+    "protein_g_per_100g": 3.4,
+    "carbs_g_per_100g": 41.4,
+    "fat_g_per_100g": 14.7,
+    "fiber_g_per_100g": 3.8,
+    "default_unit": "serving",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "serving", "label": "1 medium serving (117g)", "grams": 117.0}
+    ]
+  },
+  {
+    "id": "pasta_tomato_sauce",
+    "name": "Pasta in Tomato Sauce",
+    "aliases": ["pasta", "red sauce pasta", "spaghetti", "penne pasta", "arrabbiata pasta"],
+    "cuisine_category": "International",
+    "source": "USDA FoodData Central",
+    "calories_per_100g": 135.0,
+    "protein_g_per_100g": 4.4,
+    "carbs_g_per_100g": 24.2,
+    "fat_g_per_100g": 2.2,
+    "fiber_g_per_100g": 2.0,
+    "default_unit": "bowl",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "bowl", "label": "1 bowl (250g)", "grams": 250.0},
+      {"unit": "serving", "label": "1 plate (250g)", "grams": 250.0}
+    ]
+  },
+  {
+    "id": "fried_rice",
+    "name": "Fried Rice",
+    "aliases": ["veg fried rice", "egg fried rice", "chicken fried rice", "schezwan fried rice"],
+    "cuisine_category": "International",
+    "source": "USDA FoodData Central",
+    "calories_per_100g": 168.0,
+    "protein_g_per_100g": 4.5,
+    "carbs_g_per_100g": 25.8,
+    "fat_g_per_100g": 5.2,
+    "fiber_g_per_100g": 1.3,
+    "default_unit": "bowl",
+    "serving_units": [
+      {"unit": "g", "label": "Grams (g)", "grams": 1.0},
+      {"unit": "bowl", "label": "1 bowl (220g)", "grams": 220.0},
+      {"unit": "serving", "label": "1 plate (250g)", "grams": 250.0}
+    ]
+  }
+]
